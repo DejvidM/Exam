@@ -9,7 +9,10 @@ const AddProject = () => {
         name : '',
         due_date : ''
     })
-    const [errors , setErrors] = useState('');
+    const [errors , setErrors] = useState({
+        name : '',
+        due_date : ''
+    });
     const navigate = useNavigate();
 
     const formHandle = (e) =>{
