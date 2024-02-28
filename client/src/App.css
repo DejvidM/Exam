@@ -1,0 +1,40 @@
+.container {
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.text {
+    text-align: center;
+}
+.col{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid black;
+}
+form {
+    width: 600px;
+    margin: 0px auto;
+    margin-top: 50px;
+    padding: 20px 30px 50px;
+    border: 2px solid black;
+    border-top: none;
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+    justify-content: space-between;
+    height: auto;
+    min-height: 250px;
+}
+img {
+    height: 30px;
+    position: relative;
+    left: 25px;
+    bottom: 33px;
+}
+input[type="date"]:in-range::-webkit-datetime-edit-year-field, 
+input[type="date"]:in-range::-webkit-datetime-edit-month-field, 
+input[type="date"]:in-range::-webkit-datetime-edit-day-field {
+    color: transparent;
+}
