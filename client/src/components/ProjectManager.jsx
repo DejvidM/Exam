@@ -12,7 +12,7 @@ const ProjectManager = () => {
 
     useEffect(() => {
         let date;
-        axios.get('http://localhost:8000/projects')
+        axios.get('http://localhost:8000/api/projects')
             .then(res =>{ setAllProjects(res.data.sort((a,b) => {return new Date(a.due_date).getTime() - 
                 new Date(b.due_date).getTime()}) // Black belt - sorting by date
                 ) })
@@ -23,18 +23,18 @@ const ProjectManager = () => {
     const handleBacklog = (status,id,i) => {
         status == 'Not working'
         ?
-            setAllProjects(allProjects.map( (project) => project._id == id ? axios.patch(`http://localhost:8000/projects/${id}`, {...project , status : 'Move to Completed'} )
+            setAllProjects(allProjects.map( (project) => project._id == id ? axios.patch(`http://localhost:8000/api/projects/${id}`, {...project , status : 'Move to Completed'} )
                 .then(res => setToggle(!toggle))
                 .catch(err => console.log(err)) 
             : project))
         : status == 'Move to Completed'
             ? 
-                setAllProjects(allProjects.map( (project) => project._id == id ? axios.patch(`http://localhost:8000/projects/${id}`,  {...project , status : 'Completed'} )
+                setAllProjects(allProjects.map( (project) => project._id == id ? axios.patch(`http://localhost:8000/api/projects/${id}`,  {...project , status : 'Completed'} )
                 .then(res => setToggle(!toggle))
                 .catch(err => console.log(err))
                 : project))
             :   
-                axios.delete(`http://localhost:8000/projects/${id}`)
+                axios.delete(`http://localhost:8000/api/projects/${id}`)
                     .then(res => setAllProjects(allProjects.filter( (project) => project._id == id ? '' : project)))
                     .catch(err => console.log(err))
 

@@ -17,7 +17,7 @@ const AddProject = () => {
 
     const formHandle = (e) =>{
         e.preventDefault();
-        axios.post('http://localhost:8000/projects' , project)
+        axios.post('http://localhost:8000/api/projects' , project)
             .then(res => navigate('/'))
             .catch(err =>{ setErrors(err.response.data.errors)} ) //Black belt  - front end validations
     }
